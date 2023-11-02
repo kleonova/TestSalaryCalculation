@@ -32,4 +32,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> getAllLead() {
         return employeeDao.findAll();
     }
+
+    @Override
+    public double getSumSalarySubordinates(int id) {
+        return 0;
+    }
 }
