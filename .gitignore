@@ -2,5 +2,8 @@
 /.mvn
 /data
 /target
-/frontend/node_modules
 .env
+/frontend/node_modules/
+mvnw
+mvnw.cmd
+SalaryCalculation.iml
