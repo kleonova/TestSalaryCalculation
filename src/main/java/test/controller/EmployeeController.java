@@ -29,7 +29,7 @@ public class EmployeeController {
                 .stream()
                 .map(employee -> {
                     double sumSalarySubordinates = employeeService.getSumSalarySubordinates(employee.getId());
-                    AbstractEmployeeDto employeeDto = EmployeeDtoFactory.getEmployeeDto(employee, 0.0);
+                    AbstractEmployeeDto employeeDto = EmployeeDtoFactory.getEmployeeDto(employee, sumSalarySubordinates);
                     employeeDto.calculateCurrentPayment();
                     return employeeDto;
                 }).collect(Collectors.toList());

@@ -35,12 +35,8 @@ public class Employee {
     @Column(name = "employment_group")
     private EmployeeGroup employmentGroup;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="employee_lead_id", nullable=true)
-    private Employee employeeLead;
-
-    @OneToMany(mappedBy="employeeLead", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Employee> subordinates;
+    @Column(name="employee_lead_id", nullable=true)
+    private int employeeLead;
 
     private int salary;
 }

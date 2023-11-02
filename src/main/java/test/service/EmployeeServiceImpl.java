@@ -13,8 +13,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee save(Employee employee) {
-        Employee employeeLead = getById(1);
-        employee.setEmployeeLead(employeeLead);
         return employeeDao.save(employee);
     }
 
@@ -34,7 +32,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public double getSumSalarySubordinates(int id) {
-        return 0;
+    public int getSumSalarySubordinates(int id) {
+        List<Employee> subordinates = employeeDao.findEmployeeByEmployeeLead(id);
+        int sum = subordinates.stream()
+                .mapToInt(Employee::getSalary).sum();
+
+        return sum;
     }
 }

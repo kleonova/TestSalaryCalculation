@@ -12,5 +12,5 @@ public interface EmployeeService {
 
     public List<Employee> getAllLead();
 
-    double getSumSalarySubordinates(int id);
+    public int getSumSalarySubordinates(int id);
 }
