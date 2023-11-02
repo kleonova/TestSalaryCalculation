@@ -1,9 +1,6 @@
-package test;
+package test.dto;
 
-import test.dto.AbstractEmployeeDto;
-import test.dto.EmployeeDto;
-import test.dto.ManagerDto;
-import test.dto.SalesmanDto;
+import test.EmployeeGroup;
 import test.model.Employee;
 
 public class EmployeeDtoFactory {

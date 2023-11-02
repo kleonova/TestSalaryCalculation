@@ -2,7 +2,7 @@ package test.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import test.EmployeeDtoFactory;
+import test.dto.EmployeeDtoFactory;
 import test.dto.AbstractEmployeeDto;
 import test.model.Employee;
 import test.service.EmployeeService;
