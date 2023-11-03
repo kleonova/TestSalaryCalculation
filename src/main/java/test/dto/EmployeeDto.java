@@ -1,25 +1,27 @@
 package test.dto;
 
+import lombok.Data;
+import test.EmployeeGroup;
 import test.model.Employee;
 
-public class EmployeeDto extends AbstractEmployeeDto {
-    static final double BONUS_FOR_EVERY_YEAR = 0.03;
-    static final double MAX_BONUS = 0.3;
+import java.util.Date;
+
+@Data
+public class EmployeeDto {
+    private int id;
+    private String name;
+    private Date employmentDate;
+    private int salary;
+    private EmployeeGroup employeeGroup;
+    private int employeeLead;
+    private double currentPayment; // итоговая выплата
 
     public EmployeeDto(Employee employee) {
-        super(employee, 0.0);
-    }
-
-    // Employee – это базовая ставка плюс 3% за каждый год работы,
-    // но не более 30% суммарной надбавки.
-    @Override
-    public void calculateCurrentPayment() {
-        double countBonusForWorkExperience = getCountWorkYears() > 0
-                ? getSalary() * getCountWorkYears() * BONUS_FOR_EVERY_YEAR
-                : 0.0;
-        double maxBonusForWorkExperience = getSalary() * MAX_BONUS;
-        double factBonusForWorkExperience = Math.min(countBonusForWorkExperience, maxBonusForWorkExperience);
-
-        setCurrentPayment(getSalary() + factBonusForWorkExperience);
+        id = employee.getId();
+        name = String.format("%s %s %s", employee.getLastName(), employee.getFirstName(), employee.getSecondName());
+        employmentDate = employee.getEmploymentDate();
+        salary = employee.getSalary();
+        employeeGroup = employee.getEmploymentGroup();
+        employeeLead = employee.getEmployeeLead();
     }
 }
